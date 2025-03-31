@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 练习2</title>
+    <style>
+      body {
+        background-color: #f0f7f8;
+        font-family: Arial, sans-serif; /* 添加字体样式 */
+      }
+      h1 {
+        background-image: url("./images/780.jpg");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        text-align: center;
+        padding: 100px 0; /* 增加标题的上下内边距 */
+        color: white; /* 设置标题文字颜色 */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加文字阴影 */
+      }
+      /* 统一图片样式 */
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 1em;
+        border: 1px solid #ddd; /* 添加图片边框 */
+        border-radius: 4px; /* 设置图片圆角 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加图片阴影 */
+        transition: transform 0.3s ease; /* 添加图片缩放过渡效果 */
+      }
+      img:hover {
+        transform: scale(1.05); /* 鼠标悬停时图片放大 */
+      }
+      /* 为内容容器添加样式 */
+      .content-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      /* 为每个栏目添加样式 */
+      .section {
+        margin-bottom: 40px;
+      }
+      /* 调整 box 样式 */
+      .box {
+        width: auto; /* 自适应宽度 */
+        height: auto; /* 自适应高度 */
+        border: 2px solid #295aa3;
+        padding: 20px;
+        margin-top: 3em;
+        border-radius: 5px;
+        background-color: white; /* 添加背景颜色 */
+      }
+      /* 调整 flex-container 样式 */
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* 添加元素间距 */
+      }
+      .flex-container p {
+        background-color: #205dd6;
+        border: 5px solid rgb(200, 200, 219);
+        margin-right: 2em;
+        padding: 8px;
+        color: white; /* 设置文字颜色 */
+        border-radius: 4px; /* 设置圆角 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-container">
+      <h1>天文新闻&天气预报 速览</h1>
+      <div class="section">
+        <h2>栏目推荐：星系与宇宙</h2>
+        <div>
+          星云（Nebula），是稀薄的气体或尘埃构成的天体之一。 包含了除行星和彗星外的几乎所有延展型天体。 
+          它们的主要成分是氢，其次是氦，还含有一定比例的金属元素和非金属元素。 
+          1990年 哈勃望远镜升空以来的研究还发现含有 有机分子等物质。
+        </div>
+        <img src="https://bpic.588ku.com/back_pic/06/16/11/9462b9e6d243cbf.jpg" alt="星云图片">
+      </div>
+      <div class="section">
+        <h2>栏目推荐：走进太阳系</h2>
+        <div class="box">
+          中文名太阳系
+          外文名Solar System
+          学科类别天文学
+          行星8颗，其中4颗岩质行星（类地行星），4颗气态行星（类木行星）
+          位置银河系—猎户臂
+          质量1.0014 M⊙
+          最近的恒星比邻星（4.2465光年）
+          轨道周期225-250百万年
+          轨道速度220km/s
+          至银河系中心距离26000-28000光年
+          已知的矮行星已确认的：谷神星，冥王星，鸟神星，妊神星，阋神星（截至2025年），可能还有数百颗 [3-4]
+          已知的天然卫星173颗行星的卫星，297颗微型行星的卫星
+          已知的小行星127万 [1]
+        </div>
+        <img src="./images/solar_system.jpg" alt="太阳系图片">
+      </div>
+      <div class="section">
+        <h2>深空勘测</h2>
+        <ul>
+          <li>中国空间站</li>
+          <li>天象预览</li>
+          <li>天象游览</li>
+        </ul>
+        <img src="https://images.akamai.steamusercontent.com/ugc/270600083982747059/15640ED1A98F96B57F325DDA70296F634A5EAF52/" alt="深空勘测图片">
+        <ul>
+          <li style="display: inline">天文学史</li>
+          <li style="display: inline">星座小知识</li>
+          <li style="display: inline">天文地理</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>天文星座</h2>
+        <div class="flex-container">
+          <p>29个北天星座</p>
+          <p>12个黄道星座、</p>
+          <p>47个南天星座</p>
+        </div>
+        <img src="https://img.saihuitong.com/2900/img/104581/large/187733153a5.jpg" alt="天文学图片" width="300" height="200">
+      </div>
+    </div>
+  </body>
+</html>
