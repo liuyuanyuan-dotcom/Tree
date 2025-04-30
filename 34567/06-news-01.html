@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 语法</title>
+    <script>
+    </script>
+    </head>
+    <body>
+        <h1 onclick="alert("我被点击了")">Javascript 语法</h1>
+        <h2>JavaScript 变量</h2>
+        <p>变量是用于存储数据的容器。在 JavaScript 中，变量使用 var、let 或 const 关键字来声明。</p>
+    <title>Document</title>
+    <script>
+       //类和对象
+        class car{
+            constructor(brond,model,year){
+                this.year=year; 
+            }
+            start(){
+                console.log(`你好，汽车${this.brand},今年${this.model}启动了`)
+            }
+            stop(){
+                console.log(`你好，汽车${this.brand},今年${this.model}停止了`)
+            }
+        }
+        let mycar=new car("宝马","x5",2020)
+        mycar.start()
+        mycar.stop()
+        class electricCar extends car{
+            constructor(brand,model,year,range){
+                super(brand,model,year)
+                this.range=range;
+            }
+            charge(){
+                console.log(`你好，电动汽车${this.brand},今年${this.model}正在充电`)
+            }
+        }
+        let myelectricCar=new electricCar("特斯拉","model S",2022,300)
+        myelectricCar.start()
+        myelectricCar.charge()
+
+        //回调函数练习
+        console.log("1111111111")
+        setTimeout(function(){
+            console.log("2222222222")
+        },2000)
+        console.log("3333333333")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

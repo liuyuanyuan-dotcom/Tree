@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript 异步编程练习</h1>
+    <div id="demo">
+    
+    </div>
+    <script>
+        async function getSomething() {
+          await setTimeout(function(){
+            console.log("111111111")
+          },2000)  
+        }
+        getSomething()
+        .then(
+            result=>console.log("22222222")
+        );
+
+        // 定义函数获取仓库推送日期
+        async function getRepositoryPushDates(owner, repo) {
+            try {
+                // 构建 GitHub API 请求 URL
+                const url = `https://api.github.com/repos/${owner}/${repo}/events`;
+                // 使用 fetch 发起请求
+                const response = await fetch(url);
+                // 检查响应状态
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                // 解析响应数据为 JSON
+                const data = await response.json();
+                // 筛选出 PushEvent 类型的事件
+                const pushEvents = data.filter(event => event.type === 'PushEvent');
+                // 提取推送日期
+                const pushDates = pushEvents.map(event => event.created_at);
+                // 输出推送日期
+                console.log('仓库所有推送日期:', pushDates);
+                // 将推送日期显示在页面上
+                const demoDiv = document.getElementById('demo');
+                pushDates.forEach(date => {
+                    const p = document.createElement('p');
+                    p.textContent = date;
+                    demoDiv.appendChild(p);
+                });
+            } catch (error) {
+                console.error('获取推送日期时出错:', error);
+            }
+        }
+
+        // 使用示例，替换为你要查询的仓库所有者和仓库名
+        getRepositoryPushDates('liuyuanyuan-dotcom', 'Tree');
+    </script>
+</body>
+</html>

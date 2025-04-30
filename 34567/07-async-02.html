@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript 异步编程练习</h1>
+    <div id="demo">
+    
+    </div>
+    <script>
+        async function getSomething() {
+          // 这里 setTimeout 不是 Promise，使用 async/await 会有问题，可改为 Promise 形式
+          await new Promise(resolve => setTimeout(() => {
+            console.log("111111111");
+            resolve();
+          }, 2000));
+        }
+        getSomething()
+        .then(
+            result => console.log("22222222")
+        );
+        async function getRepositoryPushDates(owner, repo) {
+    try {
+        // 构建 GitHub API 的请求 URL
+        const url = `https://api.github.com/repos/${owner}/${repo}/events`;
+        
+        // 发起 fetch 请求
+        const response = await fetch(url);
+        
+        // 检查响应状态是否正常
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        // 解析响应数据为 JSON 格式
+        const data = await response.json();
+
+        // 筛选出类型为 PushEvent 的事件，并提取推送日期
+        const pushDates = data
+            .filter(event => event.type === 'PushEvent')
+            .map(event => event.created_at);
+
+        return pushDates;
+    } catch (error) {
+        console.error('获取推送日期时出错:', error);
+        return [];
+    }
+}
+
+// 使用示例
+const owner = 'liuyuanyuan-dotcom';
+const repo = 'Tree';
+// 修正后的代码
+getRepositoryPushDates(owner, repo).then(dates => {
+    console.log('推送日期:', dates);
+});
+    </script>
+</body>
+</html>
+
+<!-- Path: 07-async-01.html -->
