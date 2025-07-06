@@ -8,7 +8,7 @@
     </script>
     </head>
     <body>
-        <h1 onclick="alert("我被点击了")">Javascript 语法</h1>
+        <h1 onclick="alert('我被点击了')">Javascript 语法</h1>
         <h2>JavaScript 变量</h2>
         <p>变量是用于存储数据的容器。在 JavaScript 中，变量使用 var、let 或 const 关键字来声明。</p>
     <title>Document</title>
@@ -47,6 +47,30 @@
             console.log("2222222222")
         },2000)
         console.log("3333333333")
+
+        // 新闻数据
+        const newsData = [
+          { title: '行业动态', content: '人工智能领域取得新突破' },
+          { title: '科技快讯', content: '5G网络覆盖范围持续扩大' },
+          { title: '财经新闻', content: '全球股市迎来新一轮上涨' }
+        ];
+        
+        // 新闻列表渲染函数
+        function renderNewsList() {
+          const container = document.getElementById('news-list');
+          
+          newsData.forEach(news => {
+            const li = document.createElement('li');
+            li.innerHTML = `<h3>${news.title}</h3><p>${news.content}</p>`;
+            li.style.margin = '10px 0';
+            li.style.padding = '10px';
+            li.style.backgroundColor = '#f5f5f5';
+            container.appendChild(li);
+          });
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', renderNewsList);
     </script>
 </head>
 <body>
